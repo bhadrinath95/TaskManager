@@ -229,19 +229,32 @@ console.log(person.name);  // "John"
 
 ### **[Chapter 15: Classes](#chapter-15-classes)**
 ```js
-class Car {
-  constructor(make, model) {
-    this.make = make;
-    this.model = model;
+class Person {
+  constructor(name, age) {
+    this._name = name;
+    this._age = age;
   }
-
-  drive() {
-    console.log("Driving " + this.model);
+  
+  get name() {
+    return this._name;
+  }
+  
+  set name(newName) {
+    this._name = newName;
+  }
+  
+  get age() {
+    return this._age;
+  }
+  
+  set age(newAge) {
+    if (newAge >= 0) {
+      this._age = newAge;
+    } else {
+      console.log("Age cannot be negative.");
+    }
   }
 }
-
-let myCar = new Car("Toyota", "Corolla");
-myCar.drive();
 ```
 
 ---
