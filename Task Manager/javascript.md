@@ -345,7 +345,9 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 
 - **Query/Get Elements**:
   ```js
-  let element = document.querySelector(".myClass");
+  let element = document.getElementById("view");
+  let allElements = document.getElementsByClassName(".myClass");
+  let element = document.querySelector("#view");
   let allElements = document.querySelectorAll(".myClass");
   ```
 
