@@ -1,144 +1,110 @@
 ---
 
-### **JavaScript Cheat Book**
+### **Chapter 1: Introduction**
+- JavaScript is a scripting language for creating dynamic web content.
+- It runs in the browser and can manipulate the Document Object Model (DOM) to create interactive web pages.
 
 ---
 
-#### **Chapter 1: Introduction**
-- JavaScript is a lightweight, interpreted programming language primarily used for creating interactive web pages.
-- It runs on the browser, allowing you to dynamically update HTML, manipulate CSS, and handle events.
-  
----
-
-#### **Chapter 2: Link JS to HTML**
-- **Using `<script>` tag**:
-  ```html
-  <script src="script.js"></script>
-  ```
-
-- **In the head section** (with `defer` attribute to load after HTML parsing):
-  ```html
-  <head>
-    <script src="script.js" defer></script>
-  </head>
-  ```
-
-- **Inline JS**:
-  ```html
-  <script>
-    console.log("Hello, World!");
-  </script>
-  ```
+### **Chapter 2: Link JS to HTML**
+```html
+<script src="script.js"></script>  <!-- Linking external JS file -->
+<script>
+  // Inline JavaScript code
+</script>
+```
 
 ---
 
-#### **Chapter 3: Strings**
-- **String declaration**:
+### **Chapter 3: Strings**
+- **Create String**: `let name = "John";`
+- **Escape Character**: `let str = "Hello \"World\"";`
+- **String Methods**:
   ```js
-  let str = "Hello";
-  let str2 = 'World';
-  let str3 = `Hello, ${str2}`;
+  name.toUpperCase();
+  name.toLowerCase();
+  name.length;
+  name.slice(0, 2);
+  name.indexOf("o");
   ```
-
-- **String methods**:
-  - `length`: `str.length`
-  - `toUpperCase()`: `str.toUpperCase()`
-  - `toLowerCase()`: `str.toLowerCase()`
-  - `slice()`: `str.slice(0, 3)` (Extracts part of a string)
-  - `replace()`: `str.replace("Hello", "Hi")`
-  - `includes()`: `str.includes("lo")`
 
 ---
 
-#### **Chapter 4: Numbers**
-- **Number Declaration**:
+### **Chapter 4: Numbers**
+- **Number Methods**:
   ```js
-  let num = 10;
-  let floatNum = 10.5;
+  let x = 3.14;
+  x.toFixed(2); // "3.14"
+  Number.isInteger(4); // true
+  Number.isFinite(100); // true
   ```
-
-- **Number methods**:
-  - `parseInt()`: Converts string to integer.
-  - `parseFloat()`: Converts string to float.
-  - `toFixed()`: Rounds the number to a fixed number of decimal places.
-  - `isNaN()`: Checks if a value is NaN (Not a Number).
 
 ---
 
-#### **Chapter 5: Math Methods**
+### **Chapter 5: Math Methods**
 - **Math Methods**:
-  - `Math.round()`: Rounds a number.
-  - `Math.floor()`: Rounds down.
-  - `Math.ceil()`: Rounds up.
-  - `Math.random()`: Generates a random number.
-  - `Math.max()`: Returns the largest number.
-  - `Math.min()`: Returns the smallest number.
-
----
-
-#### **Chapter 6: If Statements**
-- **Basic If-Else**:
   ```js
-  if (condition) {
-    // code
-  } else {
-    // code
-  }
+  Math.round(3.6); // 4
+  Math.floor(3.9); // 3
+  Math.ceil(3.1); // 4
+  Math.random(); // Random number between 0 and 1
+  Math.max(1, 2, 3); // 3
+  Math.min(1, 2, 3); // 1
+  Math.pow(2, 3); // 8
+  Math.sqrt(16); // 4
   ```
 
-- **If-Else If-Else**:
+- **Number Methods**:
   ```js
-  if (condition1) {
-    // code
-  } else if (condition2) {
-    // code
-  } else {
-    // code
-  }
+  Number.isInteger(5); // true
+  Number.parseInt("123.45"); // 123
   ```
 
 ---
 
-#### **Chapter 7: Switch Statements**
-- **Switch Statement**:
-  ```js
-  switch (expression) {
-    case value1:
-      // code
-      break;
-    case value2:
-      // code
-      break;
-    default:
-      // code
-  }
-  ```
+### **Chapter 6: If Statements**
+```js
+if (x > 10) {
+  console.log("Greater");
+} else {
+  console.log("Smaller or equal");
+}
+```
 
 ---
 
-#### **Chapter 8: Ternary Operators**
-- **Ternary Operator**:
-  ```js
-  let result = condition ? valueIfTrue : valueIfFalse;
-  ```
+### **Chapter 7: Switch Statements**
+```js
+switch(day) {
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  default:
+    console.log("Unknown day");
+}
+```
 
 ---
 
-#### **Chapter 9: User Input**
-- **Using `prompt()`** to get user input:
-  ```js
-  let userInput = prompt("Enter your name:");
-  ```
-
-- **Using `confirm()`** for a yes/no dialog:
-  ```js
-  let isConfirmed = confirm("Are you sure?");
-  ```
+### **Chapter 8: Ternary Operators**
+```js
+let result = (x > 10) ? "Greater" : "Smaller or equal";
+```
 
 ---
 
-#### **Chapter 10: Loops**
+### **Chapter 9: User Input**
+```js
+let userInput = prompt("Enter your name:");
+console.log("Hello " + userInput);
+```
 
+---
+
+### **Chapter 10: Loops**
 - **For Loop**:
   ```js
   for (let i = 0; i < 5; i++) {
@@ -166,225 +132,125 @@
 
 ---
 
-#### **Chapter 11: Functions**
-- **Function Declaration**:
-  ```js
-  function greet() {
-    console.log("Hello!");
-  }
-  ```
-
-- **Function Expression**:
-  ```js
-  const greet = function() {
-    console.log("Hello!");
-  };
-  ```
-
-- **Arrow Function**:
-  ```js
-  const greet = () => console.log("Hello!");
-  ```
+### **Chapter 11: Functions**
+```js
+function greet(name) {
+  console.log("Hello " + name);
+}
+greet("John");
+```
 
 ---
 
-#### **Chapter 12: Scope - var, let, const**
+### **Chapter 12: Scope - var, let, const**
 - **var**: Function-scoped.
+- **let**: Block-scoped.
+- **const**: Block-scoped, cannot be reassigned.
   ```js
   var x = 10;
-  ```
-
-- **let**: Block-scoped.
-  ```js
   let y = 20;
-  ```
-
-- **const**: Block-scoped, constant value.
-  ```js
   const z = 30;
   ```
 
 ---
 
-#### **Chapter 13: Arrays**
-- **Creating Arrays**:
+### **Chapter 13: Arrays**
+- **Methods**:
   ```js
-  let arr = [1, 2, 3, 4, 5];
-  ```
-
-- **Delete an element at the middle of an array**:
-  ```js
-  arr.splice(2, 1); // Removes element at index 2
-  ```
-
-- **Replace or Add an element**:
-  ```js
-  arr.splice(2, 1, 6); // Replaces element at index 2 with '6'
-  arr.splice(3, 0, 7); // Adds '7' at index 3
-  ```
-
-- **Slice an array**:
-  ```js
-  let newArr = arr.slice(1, 4); // Extracts elements from index 1 to 3
-  ```
-
-- **Reverse the array**:
-  ```js
+  let arr = [1, 2, 3];
+  arr.push(4); // Adds 4 at the end
+  arr.pop(); // Removes the last element
+  arr.shift(); // Removes the first element
+  arr.unshift(0); // Adds 0 at the beginning
+  arr.slice(1, 3); // Extracts a portion of the array
   arr.reverse(); // Reverses the array
-  ```
-
-- **Concatenate arrays**:
-  ```js
-  let mergedArr = arr.concat([8, 9]);
-  ```
-
-- **Spread operator**:
-  ```js
-  let newArr = [...arr]; // Creates a shallow copy
-  let mergedArr2 = [...arr, ...[8, 9]];
+  arr.concat([5, 6]); // Combines arrays
+  let newArr = [...arr]; // Spread operator
   ```
 
 ---
 
-#### **Chapter 14: Objects**
-- **Creating an Object**:
-  ```js
-  let person = { name: "Alice", age: 25 };
-  ```
-
-- **Accessing object properties**:
-  ```js
-  console.log(person.name); // Alice
-  ```
-
-- **Adding/Modifying properties**:
-  ```js
-  person.city = "New York";
-  ```
-
-- **Deleting properties**:
-  ```js
-  delete person.age;
-  ```
+### **Chapter 14: Objects**
+```js
+let person = { name: "John", age: 30 };
+console.log(person.name); // "John"
+```
 
 ---
 
-#### **Chapter 15: Classes**
-- **Class Declaration**:
-  ```js
-  class Person {
-    constructor(name, age) {
-      this.name = name;
-      this.age = age;
-    }
-    
-    greet() {
-      console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
-    }
+### **Chapter 15: Classes**
+```js
+class Car {
+  constructor(make, model) {
+    this.make = make;
+    this.model = model;
   }
-  
-  const person1 = new Person("Alice", 25);
-  person1.greet();
-  ```
 
-- **Getter and Setter**:
+  drive() {
+    console.log("Driving " + this.model);
+  }
+}
+
+let myCar = new Car("Toyota", "Corolla");
+myCar.drive();
+```
+
+---
+
+### **Chapter 16: JSON**
+```js
+let jsonStr = '{"name": "John", "age": 30}';
+let jsonObj = JSON.parse(jsonStr); // Convert string to object
+let jsonString = JSON.stringify(jsonObj); // Convert object to string
+```
+
+---
+
+### **Chapter 17: Error Handling**
+- **try-catch**:
   ```js
-  class Person {
-    constructor(name, age) {
-      this._name = name;
-      this._age = age;
-    }
-    
-    get name() {
-      return this._name;
-    }
-    
-    set name(newName) {
-      this._name = newName;
-    }
-    
-    get age() {
-      return this._age;
-    }
-    
-    set age(newAge) {
-      if (newAge >= 0) {
-        this._age = newAge;
-      } else {
-        console.log("Age cannot be negative.");
-      }
-    }
+  try {
+    let x = y + 1; // ReferenceError
+  } catch (error) {
+    console.log(error.message); // Handles error
   }
   ```
 
----
-
-#### **Chapter 16: JSON**
-- **JSON.stringify()**: Converts a JavaScript object to a JSON string.
+- **Errors**:
   ```js
-  let jsonString = JSON.stringify({ name: "Alice", age: 25 });
+  ReferenceError: variable is not defined
+  SyntaxError: unexpected token
+  TypeError: Cannot read property of undefined
   ```
 
-- **JSON.parse()**: Converts a JSON string to a JavaScript object.
-  ```js
-  let obj = JSON.parse('{"name":"Alice","age":25}');
-  ```
-
----
-
-#### **Chapter 17: How to Handle Errors**
-- **Types of Errors**:
-  - **ReferenceError**:
-    ```js
-    try { console.log(x); } catch (e) { console.log(e.name); }
-    ```
-
-  - **SyntaxError**:
-    ```js
-    try { eval('var a = );'); } catch (e) { console.log(e.name); }
-    ```
-
-  - **TypeError**:
-    ```js
-    try { null.toUpperCase(); } catch (e) { console.log(e.name); }
-    ```
-
-- **Using `"use strict"`**:
+- **Use Strict**:
   ```js
   "use strict";
   ```
 
 ---
 
-#### **Chapter 18: Document Object Model (DOM)**
-
-- **Query / Get Elements**:
+### **Chapter 18: DOM (Document Object Model)**
+- **Query/Get Elements**:
   ```js
-  let element = document.getElementById("elementID");
+  let element = document.getElementById("myElement");
+  let elements = document.querySelectorAll(".myClass");
   ```
 
-- **Create / Clone Elements**:
+- **Create/Clone Elements**:
   ```js
-  let newElement = document.createElement("div");
+  let newDiv = document.createElement("div");
+  let clonedDiv = newDiv.cloneNode(true);
   ```
 
 - **Add Node to Document**:
   ```js
-  let parent = document.getElementById("parentID");
-  parent.appendChild(newElement);
-  ```
-
--
-
- **Get Element Details**:
-  ```js
-  let id = element.id;
-  let content = element.innerHTML;
+  document.body.appendChild(newDiv);
   ```
 
 - **Modify Element**:
   ```js
-  element.innerHTML = "New content";
+  element.innerHTML = "New Content";
   ```
 
 - **Get and Modify Element Class**:
@@ -400,19 +266,49 @@
 
 ---
 
-#### **Chapter 19: Event Listeners**
-- **Add an Event Listener**:
+### **Chapter 19: Event Listeners**
+- **Mouse Events**:
   ```js
-  element.addEventListener("click", function() {
-    console.log("Element clicked!");
-  });
+  element.addEventListener("click", function() { console.log("Clicked!"); });
+  element.addEventListener("dblclick", function() { console.log("Double clicked!"); });
+  ```
+
+- **Keyboard Events**:
+  ```js
+  document.addEventListener("keydown", function(event) { console.log(event.key); });
+  document.addEventListener("keyup", function(event) { console.log(event.key); });
+  ```
+
+- **Form Events**:
+  ```js
+  form.addEventListener("submit", function(event) { event.preventDefault(); });
+  inputElement.addEventListener("change", function() { console.log("Input changed!"); });
+  ```
+
+- **Focus Events**:
+  ```js
+  inputElement.addEventListener("focus", function() { console.log("Focused!"); });
+  inputElement.addEventListener("blur", function() { console.log("Blurred!"); });
+  ```
+
+- **Window Events**:
+  ```js
+  window.addEventListener("resize", function() { console.log("Resized!"); });
+  window.addEventListener("scroll", function() { console.log("Scrolling!"); });
+  ```
+
+- **Touch Events**:
+  ```js
+  element.addEventListener("touchstart", function() { console.log("Touch started!"); });
+  element.addEventListener("touchmove", function() { console.log("Touch moving!"); });
   ```
 
 ---
 
-#### **Chapter 20: Application Programming Interface (API)**
+### **Chapter 20: API (Application Programming Interface)**
 
-- **Fetch API**:
+#### **Fetch API**
+- **Making Requests with Fetch**:
   ```js
   fetch("https://api.example.com")
     .then(response => response.json())
@@ -420,36 +316,82 @@
     .catch(error => console.log(error));
   ```
 
----
-
-#### **Chapter 21: Modules**
-- **Exporting and Importing Modules**:
+#### **LocalStorage**
+- **Store data**: LocalStorage stores data without an expiration date (persistent across sessions).
   ```js
-  // module.js
-  export function greet() {
-    console.log("Hello from module!");
-  }
+  // Store data
+  localStorage.setItem("username", "JohnDoe");
+  
+  // Retrieve data
+  let username = localStorage.getItem("username");
+  console.log(username); // "JohnDoe"
+  
+  // Remove data
+  localStorage.removeItem("username");
+  
+  // Clear all local storage data
+  localStorage.clear();
+  ```
 
-  // main.js
-  import { greet } from './module.js';
-  greet();
+- **Check if data exists**:
+  ```js
+  if (localStorage.getItem("username")) {
+    console.log("Data exists!");
+  } else {
+    console.log("No data found.");
+  }
+  ```
+
+#### **SessionStorage**
+- **Store data**: SessionStorage stores data only for the duration of the page session (data is cleared when the page is closed).
+  ```js
+  // Store data
+  sessionStorage.setItem("sessionID", "abc123");
+  
+  // Retrieve data
+  let sessionID =
+
+ sessionStorage.getItem("sessionID");
+  console.log(sessionID); // "abc123"
+  
+  // Remove data
+  sessionStorage.removeItem("sessionID");
+  
+  // Clear all session storage data
+  sessionStorage.clear();
+  ```
+
+- **Session-based storage**: SessionStorage is only available for the duration of the page session and is not shared across different tabs or windows.
+  ```js
+  if (sessionStorage.getItem("sessionID")) {
+    console.log("Session data exists!");
+  } else {
+    console.log("No session data.");
+  }
   ```
 
 ---
 
-#### **Chapter 22: Higher Order Functions**
-- **Example of a Higher Order Function**:
-  ```js
-  function processArray(arr, fn) {
-    return arr.map(fn);
-  }
-  
-  function double(num) {
-    return num * 2;
-  }
-  
-  let result = processArray([1, 2, 3], double);
-  console.log(result); // [2, 4, 6]
-  ```
+### **Chapter 21: Modules**
+```js
+// In module1.js
+export const greet = () => console.log("Hello!");
+export const name = "John";
+
+// In app.js
+import { greet, name } from './module1.js';
+greet();
+console.log(name);
+```
+
+---
+
+### **Chapter 22: Higher Order Functions**
+```js
+// Example: Map function
+let numbers = [1, 2, 3];
+let doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6]
+```
 
 ---
