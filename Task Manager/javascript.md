@@ -396,7 +396,75 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 
 ---
 
-### **[Chapter 19: Event Listeners](#chapter-19-event-listeners)**
+It seems you're interested in some additional methods related to DOM traversal. Here's an updated section for that, including the missing methods you mentioned:
+
+---
+
+### **[Chapter 19: DOM Traversal Methods](#chapter-23-dom-traversal-methods)**
+
+These methods allow you to navigate through the DOM elements relative to a specific element.
+
+- **parentElement**: Returns the parent element of a specified element.
+  ```js
+  let parent = element.parentElement;
+  ```
+
+- **nextSibling**: Returns the next sibling node of an element (including text nodes).
+  ```js
+  let next = element.nextSibling;
+  ```
+
+- **nextElementSibling**: Returns the next sibling element (ignores text nodes).
+  ```js
+  let nextElement = element.nextElementSibling;
+  ```
+
+- **previousSibling**: Returns the previous sibling node of an element (including text nodes).
+  ```js
+  let prev = element.previousSibling;
+  ```
+
+- **previousElementSibling**: Returns the previous sibling element (ignores text nodes).
+  ```js
+  let prevElement = element.previousElementSibling;
+  ```
+
+- **children**: Returns a live HTMLCollection of the child elements of an element.
+  ```js
+  let children = element.children;
+  ```
+
+- **childNodes**: Returns a live NodeList of all child nodes (including text nodes).
+  ```js
+  let childNodes = element.childNodes;
+  ```
+
+- **hasChildNodes**: Returns a boolean indicating whether the element has child nodes.
+  ```js
+  let hasChildren = element.hasChildNodes();
+  ```
+
+- **lastChild**: Returns the last child node of an element (including text nodes).
+  ```js
+  let lastChild = element.lastChild;
+  ```
+
+- **lastElementChild**: Returns the last child element (ignores text nodes).
+  ```js
+  let lastElementChild = element.lastElementChild;
+  ```
+
+- **firstChild**: Returns the first child node of an element (including text nodes).
+  ```js
+  let firstChild = element.firstChild;
+  ```
+
+- **firstElementChild**: Returns the first child element (ignores text nodes).
+  ```js
+  let firstElementChild = element.firstElementChild;
+  ```
+
+### **[Chapter 20: Event Listeners](#chapter-19-event-listeners)**
 
 - **Basic Event Listener**:
   ```js
@@ -449,7 +517,7 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 
 ---
 
-### **[Chapter 20: API (Application Programming Interface)](#chapter-20-api-application-programming-interface)**
+### **[Chapter 21: API (Application Programming Interface)](#chapter-20-api-application-programming-interface)**
 
 - **LocalStorage & SessionStorage**: [Document](https://github.com/bhadrinath95/TaskManager/blob/3b9338d4ecfa1bd603e0cb43cb0a9c2f5c4ff030/Task%20Manager/storage.md)
   ```js
@@ -462,7 +530,7 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 
 ---
 
-### **[Chapter 21: Modules](#chapter-21-modules)**
+### **[Chapter 22: Modules](#chapter-21-modules)**
 ```js
 // In module1.js
 export const greet = () => "Hello";
@@ -478,7 +546,7 @@ console.log(obj.greet());
 
 ---
 
-### **[Chapter 22: Higher Order Functions](#chapter-22-higher-order-functions)**
+### **[Chapter 23: Higher Order Functions](#chapter-22-higher-order-functions)**
 Higher-order functions are functions that take other functions as arguments or return a function as their result. Common higher-order functions in JavaScript include `map`, `filter`, and `reduce`.
 
 ```js
