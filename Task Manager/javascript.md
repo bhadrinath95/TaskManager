@@ -396,10 +396,6 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 
 ---
 
-It seems you're interested in some additional methods related to DOM traversal. Here's an updated section for that, including the missing methods you mentioned:
-
----
-
 ### **[Chapter 19: DOM Traversal Methods](#chapter-23-dom-traversal-methods)**
 
 These methods allow you to navigate through the DOM elements relative to a specific element.
