@@ -1,12 +1,15 @@
+```markdown
+# JavaScript Cheat Sheet
+
 ---
 
-### **Chapter 1: Introduction**
+### **[Chapter 1: Introduction](#chapter-1-introduction)**
 - JavaScript is a scripting language used to create interactive web pages.
 - It runs in the browser and manipulates the Document Object Model (DOM).
 
 ---
 
-### **Chapter 2: Link JS to HTML**
+### **[Chapter 2: Link JS to HTML](#chapter-2-link-js-to-html)**
 ```html
 <script src="script.js"></script>  <!-- Linking external JS file -->
 <script>
@@ -16,7 +19,7 @@
 
 ---
 
-### **Chapter 3: Strings**
+### **[Chapter 3: Strings](#chapter-3-strings)**
 - **Create String**:
   ```js
   let name = "John";
@@ -38,7 +41,7 @@
 
 ---
 
-### **Chapter 4: Numbers**
+### **[Chapter 4: Numbers](#chapter-4-numbers)**
 - **Number Methods**:
   ```js
   let x = 3.14;
@@ -49,7 +52,7 @@
 
 ---
 
-### **Chapter 5: Math Methods**
+### **[Chapter 5: Math Methods](#chapter-5-math-methods)**
 - **Math Methods**:
   ```js
   Math.round(3.6);    // 4
@@ -70,7 +73,7 @@
 
 ---
 
-### **Chapter 6: If Statements**
+### **[Chapter 6: If Statements](#chapter-6-if-statements)**
 ```js
 if (x > 10) {
   console.log("Greater");
@@ -81,7 +84,7 @@ if (x > 10) {
 
 ---
 
-### **Chapter 7: Switch Statements**
+### **[Chapter 7: Switch Statements](#chapter-7-switch-statements)**
 ```js
 switch(day) {
   case 1:
@@ -97,14 +100,14 @@ switch(day) {
 
 ---
 
-### **Chapter 8: Ternary Operators**
+### **[Chapter 8: Ternary Operators](#chapter-8-ternary-operators)**
 ```js
 let result = (x > 10) ? "Greater" : "Smaller or equal";
 ```
 
 ---
 
-### **Chapter 9: User Input**
+### **[Chapter 9: User Input](#chapter-9-user-input)**
 ```js
 let userInput = prompt("Enter your name:");
 console.log("Hello " + userInput);
@@ -112,7 +115,7 @@ console.log("Hello " + userInput);
 
 ---
 
-### **Chapter 10: Loops**
+### **[Chapter 10: Loops](#chapter-10-loops)**
 - **For Loop**:
   ```js
   for (let i = 0; i < 5; i++) {
@@ -140,7 +143,7 @@ console.log("Hello " + userInput);
 
 ---
 
-### **Chapter 11: Functions**
+### **[Chapter 11: Functions](#chapter-11-functions)**
 ```js
 function greet(name) {
   console.log("Hello " + name);
@@ -150,7 +153,7 @@ greet("John");
 
 ---
 
-### **Chapter 12: Scope - var, let, const**
+### **[Chapter 12: Scope - var, let, const](#chapter-12-scope---var-let-const)**
 - **var**: Function-scoped.
 - **let**: Block-scoped.
 - **const**: Block-scoped, cannot be reassigned.
@@ -162,7 +165,7 @@ greet("John");
 
 ---
 
-### **Chapter 13: Arrays**
+### **[Chapter 13: Arrays](#chapter-13-arrays)**
 
 - **Methods**:
   ```js
@@ -194,7 +197,7 @@ greet("John");
 
 ---
 
-### **Chapter 14: Objects**
+### **[Chapter 14: Objects](#chapter-14-objects)**
 ```js
 let person = { name: "John", age: 30 };
 console.log(person.name);  // "John"
@@ -202,7 +205,7 @@ console.log(person.name);  // "John"
 
 ---
 
-### **Chapter 15: Classes**
+### **[Chapter 15: Classes](#chapter-15-classes)**
 ```js
 class Car {
   constructor(make, model) {
@@ -221,7 +224,7 @@ myCar.drive();
 
 ---
 
-### **Chapter 16: JSON**
+### **[Chapter 16: JSON](#chapter-16-json)**
 ```js
 let jsonStr = '{"name": "John", "age": 30}';
 let jsonObj = JSON.parse(jsonStr);  // Convert string to object
@@ -230,7 +233,7 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 
 ---
 
-### **Chapter 17: Error Handling**
+### **[Chapter 17: Error Handling](#chapter-17-error-handling)**
 
 - **try-catch**:
   ```js
@@ -306,45 +309,45 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
   try {
     throw new CustomError("This is a custom error");
   } catch (error) {
-    console.log(error.name);  // CustomError
+    console.log(error
+
+.name);  // CustomError
     console.log(error.message);  // "This is a custom error"
-    console.log(error.stack);  // Stack trace
+    console.log(error.stack);  // Error stack trace
   }
   ```
 
 ---
 
-### **Chapter 18: DOM (Document Object Model)**
+### **[Chapter 18: DOM](#chapter-18-dom)**
 
 - **Query/Get Elements**:
   ```js
-  let element = document.getElementById("myElement");
-  let elements = document.querySelectorAll(".myClass");
+  let element = document.querySelector(".myClass");
+  let allElements = document.querySelectorAll(".myClass");
   ```
 
 - **Create/Clone Elements**:
   ```js
-  let newDiv = document.createElement("div");
-  let cloneDiv = newDiv.cloneNode(true);  // Deep clone
+  let newElement = document.createElement("div");
+  let clonedElement = element.cloneNode(true);
   ```
 
 - **Add Node to Document**:
   ```js
-  document.body.appendChild(newDiv);  // Adds new div to body
-
-
+  document.body.appendChild(newElement);
   ```
 
 - **Get Element Details**:
   ```js
-  let className = element.className;  // Get class name
-  let id = element.id;  // Get id
+  let className = element.className;
+  let id = element.id;
   ```
 
 - **Modify Element**:
   ```js
-  element.style.color = "red";  // Change color
-  element.setAttribute("title", "New Title");  // Set attribute
+  element.style.color = "red";
+  element.setAttribute("title", "New Title");
   ```
 
 - **Get and Modify Element Class**:
@@ -356,12 +359,12 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 
 - **Remove Node**:
   ```js
-  element.remove();  // Removes the element from DOM
+  element.remove();
   ```
 
 ---
 
-### **Chapter 19: Event Listeners**
+### **[Chapter 19: Event Listeners](#chapter-19-event-listeners)**
 ```js
 element.addEventListener("click", function() {
   console.log("Element clicked!");
@@ -370,12 +373,12 @@ element.addEventListener("click", function() {
 
 ---
 
-### **Chapter 20: API (Application Programming Interface)**
+### **[Chapter 20: API (Application Programming Interface)](#chapter-20-api-application-programming-interface)**
 
 - **LocalStorage & SessionStorage**:
   ```js
-  localStorage.setItem("name", "John");  // Store in localStorage
-  sessionStorage.setItem("sessionName", "Tom");  // Store in sessionStorage
+  localStorage.setItem("name", "John");
+  sessionStorage.setItem("sessionName", "Tom");
   let name = localStorage.getItem("name");
   localStorage.removeItem("name");
   localStorage.clear();
@@ -383,7 +386,7 @@ element.addEventListener("click", function() {
 
 ---
 
-### **Chapter 21: Modules**
+### **[Chapter 21: Modules](#chapter-21-modules)**
 ```js
 // In module1.js
 export const greet = () => "Hello";
@@ -395,9 +398,8 @@ console.log(greet());
 
 ---
 
-### **Chapter 22: Higher Order Functions**
+### **[Chapter 22: Higher Order Functions](#chapter-22-higher-order-functions)**
 ```js
-// A function that accepts another function as an argument
 function greet(name, callback) {
   console.log("Hello " + name);
   callback();
@@ -405,5 +407,4 @@ function greet(name, callback) {
 
 greet("John", () => console.log("Good Morning!"));
 ```
-
 ---
