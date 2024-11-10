@@ -371,7 +371,16 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
   element.style.color = "red";
   element.setAttribute("title", "New Title");
   ```
+- **`innerHTML`**: This property allows you to get or set the HTML markup contained within an element. It renders HTML tags within the content string.
+  ```javascript
+  document.getElementById("example").innerHTML = "<strong>Bold text</strong>";
+  ```
 
+- **`textContent`**: This property retrieves or sets only the text content within an element, ignoring any HTML tags.
+  ```javascript
+  document.getElementById("example").textContent = "Plain text content";
+  ```
+  
 - **Get and Modify Element Class**:
   ```js
   element.classList.add("newClass");
