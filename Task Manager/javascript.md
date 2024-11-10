@@ -1,8 +1,8 @@
 ---
 
 ### **Chapter 1: Introduction**
-- JavaScript is a scripting language for creating dynamic web content.
-- It runs in the browser and can manipulate the Document Object Model (DOM) to create interactive web pages.
+- JavaScript is a scripting language used to create interactive web pages.
+- It runs in the browser and manipulates the Document Object Model (DOM).
 
 ---
 
@@ -17,15 +17,23 @@
 ---
 
 ### **Chapter 3: Strings**
-- **Create String**: `let name = "John";`
-- **Escape Character**: `let str = "Hello \"World\"";`
+- **Create String**:
+  ```js
+  let name = "John";
+  ```
+
+- **Escape Character**:
+  ```js
+  let str = "Hello \"World\"";
+  ```
+
 - **String Methods**:
   ```js
-  name.toUpperCase();
-  name.toLowerCase();
-  name.length;
-  name.slice(0, 2);
-  name.indexOf("o");
+  name.toUpperCase(); // Converts to uppercase
+  name.toLowerCase(); // Converts to lowercase
+  name.length;         // Get string length
+  name.slice(0, 2);    // Extracts a portion of the string
+  name.indexOf("o");   // Returns the index of 'o'
   ```
 
 ---
@@ -34,8 +42,8 @@
 - **Number Methods**:
   ```js
   let x = 3.14;
-  x.toFixed(2); // "3.14"
-  Number.isInteger(4); // true
+  x.toFixed(2);  // "3.14"
+  Number.isInteger(4);  // true
   Number.isFinite(100); // true
   ```
 
@@ -44,14 +52,14 @@
 ### **Chapter 5: Math Methods**
 - **Math Methods**:
   ```js
-  Math.round(3.6); // 4
-  Math.floor(3.9); // 3
-  Math.ceil(3.1); // 4
-  Math.random(); // Random number between 0 and 1
-  Math.max(1, 2, 3); // 3
-  Math.min(1, 2, 3); // 1
-  Math.pow(2, 3); // 8
-  Math.sqrt(16); // 4
+  Math.round(3.6);    // 4
+  Math.floor(3.9);    // 3
+  Math.ceil(3.1);     // 4
+  Math.random();      // Random number between 0 and 1
+  Math.max(1, 2, 3);  // 3
+  Math.min(1, 2, 3);  // 1
+  Math.pow(2, 3);     // 8
+  Math.sqrt(16);      // 4
   ```
 
 - **Number Methods**:
@@ -154,23 +162,23 @@ greet("John");
 
 ---
 
-### **Chapter 13: Arrays (Updated)**
+### **Chapter 13: Arrays**
 
 - **Methods**:
   ```js
   let arr = [1, 2, 3, 4];
-  arr.push(5); // Adds 5 at the end
-  arr.pop(); // Removes the last element
-  arr.shift(); // Removes the first element
+  arr.push(5);  // Adds 5 at the end
+  arr.pop();    // Removes the last element
+  arr.shift();  // Removes the first element
   arr.unshift(0); // Adds 0 at the beginning
-  arr.slice(1, 3); // Extracts a portion of the array
-  arr.reverse(); // Reverses the array
+  arr.slice(1, 3);  // Extracts a portion of the array
+  arr.reverse();    // Reverses the array
   arr.concat([5, 6]); // Combines arrays
-  let newArr = [...arr]; // Spread operator
+  let newArr = [...arr];  // Spread operator
   ```
 
-- **Splice**:  
-  - The `splice()` method changes the contents of an array by removing or replacing existing elements and/or adding new ones.
+- **Splice**:
+  - `splice()` removes or adds elements from/to an array.
   ```js
   arr.splice(2, 1); // Removes 1 element at index 2
   arr.splice(2, 1, 8); // Removes 1 element at index 2 and adds 8
@@ -178,10 +186,10 @@ greet("John");
   ```
 
 - **Delete Keyword**:  
-  - The `delete` keyword removes an element from the array but leaves a hole in the array (undefined at that index).
+  - The `delete` keyword removes an element but leaves a hole in the array (undefined at that index).
   ```js
-  delete arr[1]; // Removes the element at index 1, leaving undefined at that index
-  console.log(arr); // [1, undefined, 3, 4]
+  delete arr[1];  // Removes the element at index 1
+  console.log(arr);  // [1, undefined, 3, 4]
   ```
 
 ---
@@ -189,7 +197,7 @@ greet("John");
 ### **Chapter 14: Objects**
 ```js
 let person = { name: "John", age: 30 };
-console.log(person.name); // "John"
+console.log(person.name);  // "John"
 ```
 
 ---
@@ -216,26 +224,24 @@ myCar.drive();
 ### **Chapter 16: JSON**
 ```js
 let jsonStr = '{"name": "John", "age": 30}';
-let jsonObj = JSON.parse(jsonStr); // Convert string to object
-let jsonString = JSON.stringify(jsonObj); // Convert object to string
+let jsonObj = JSON.parse(jsonStr);  // Convert string to object
+let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 ```
 
 ---
 
-### **Chapter 17: Error Handling (Updated)**
+### **Chapter 17: Error Handling**
 
 - **try-catch**:
-  - **try**: Contains the code that may throw an error.
-  - **catch**: Catches the error if it occurs and handles it.
   ```js
   try {
-    let x = y + 1; // ReferenceError: y is not defined
+    let x = y + 1;  // ReferenceError: y is not defined
   } catch (error) {
-    console.log(error.message); // Logs the error message
+    console.log(error.message);  // Logs error message
   }
   ```
 
-- **Finally**: This block will always execute, regardless of whether an error occurred or not.
+- **Finally**: This block will always execute, regardless of whether an error occurred.
   ```js
   try {
     let x = y + 1;
@@ -247,31 +253,30 @@ let jsonString = JSON.stringify(jsonObj); // Convert object to string
   ```
 
 - **Types of Errors**:
-  - **ReferenceError**: A variable or function is used before being declared.
+  - **ReferenceError**: A variable is used before being declared.
     ```js
-    let x = y + 1; // ReferenceError: y is not defined
+    let x = y + 1;  // ReferenceError: y is not defined
     ```
 
-  - **SyntaxError**: There is a mistake in the syntax of your code.
+  - **SyntaxError**: There's a mistake in the syntax of the code.
     ```js
-    eval("console.log('Hello'"); // SyntaxError: Unexpected end of input
+    eval("console.log('Hello'");  // SyntaxError: Unexpected end of input
     ```
 
-  - **TypeError**: An operation is performed on a value of an incorrect type.
+  - **TypeError**: An operation is performed on an incorrect type.
     ```js
     let x = "string";
-    x.toUpperCase(); // Works fine
+    x.toUpperCase();  // Works fine
     let y = undefined;
-    y.toUpperCase(); // TypeError: Cannot read property 'toUpperCase' of undefined
+    y.toUpperCase();  // TypeError: Cannot read property 'toUpperCase' of undefined
     ```
 
-- **Use Strict**: Enforces a stricter version of JavaScript to catch common coding mistakes.
+- **Use Strict**: Enforces stricter JavaScript behavior.
   ```js
-  "use strict"; // Enables strict mode
+  "use strict";  // Enables strict mode
   ```
 
 - **Custom Error Handling**:
-  - **Throwing a Custom Error**: You can throw your own errors to handle specific conditions.
   ```js
   function checkAge(age) {
     if (age < 18) {
@@ -281,29 +286,29 @@ let jsonString = JSON.stringify(jsonObj); // Convert object to string
   }
 
   try {
-    checkAge(16); // Will throw an error
+    checkAge(16);  // Will throw error
   } catch (error) {
-    console.log(error.message); // "Age must be 18 or older"
+    console.log(error.message);  // "Age must be 18 or older"
   }
   ```
 
-  - **Creating Custom Error Classes**: Extend the base `Error` class to create your own error types.
+  - **Creating Custom Error Classes**:
   ```js
   class CustomError extends Error {
     constructor(message) {
-      super(message); // Call the parent constructor
-      this.name = this.constructor.name; // Set custom error name
-      this.message = message; // Set custom error message
-      this.stack = (new Error()).stack; // Capture the stack trace
+      super(message);
+      this.name = this.constructor.name;
+      this.message = message;
+      this.stack = (new Error()).stack;
     }
   }
 
   try {
     throw new CustomError("This is a custom error");
   } catch (error) {
-    console.log(error.name); // CustomError
-    console.log(error.message); // "This is a custom error"
-    console.log(error.stack); // Stack trace of the error
+    console.log(error.name);  // CustomError
+    console.log(error.message);  // "This is a custom error"
+    console.log(error.stack);  // Stack trace
   }
   ```
 
@@ -318,28 +323,28 @@ let jsonString = JSON.stringify(jsonObj); // Convert object to string
   ```
 
 - **Create/Clone Elements**:
-
-
   ```js
   let newDiv = document.createElement("div");
-  let cloneDiv = newDiv.cloneNode(true); // Deep clone
+  let cloneDiv = newDiv.cloneNode(true);  // Deep clone
   ```
 
 - **Add Node to Document**:
   ```js
-  document.body.appendChild(newDiv); // Adds new div to body
+  document.body.appendChild(newDiv);  // Adds new div to body
+
+
   ```
 
 - **Get Element Details**:
   ```js
-  let className = element.className; // Get class name
-  let id = element.id; // Get id
+  let className = element.className;  // Get class name
+  let id = element.id;  // Get id
   ```
 
 - **Modify Element**:
   ```js
-  element.style.color = "red"; // Change color
-  element.setAttribute("title", "New Title"); // Set attribute
+  element.style.color = "red";  // Change color
+  element.setAttribute("title", "New Title");  // Set attribute
   ```
 
 - **Get and Modify Element Class**:
@@ -351,7 +356,7 @@ let jsonString = JSON.stringify(jsonObj); // Convert object to string
 
 - **Remove Node**:
   ```js
-  element.remove(); // Removes the element from DOM
+  element.remove();  // Removes the element from DOM
   ```
 
 ---
@@ -360,7 +365,7 @@ let jsonString = JSON.stringify(jsonObj); // Convert object to string
 ```js
 element.addEventListener("click", function() {
   console.log("Element clicked!");
-}, true); // Use capture phase
+}, true);  // Use capture phase
 ```
 
 ---
@@ -369,8 +374,8 @@ element.addEventListener("click", function() {
 
 - **LocalStorage & SessionStorage**:
   ```js
-  localStorage.setItem("name", "John"); // Store in localStorage
-  sessionStorage.setItem("sessionName", "Tom"); // Store in sessionStorage
+  localStorage.setItem("name", "John");  // Store in localStorage
+  sessionStorage.setItem("sessionName", "Tom");  // Store in sessionStorage
   let name = localStorage.getItem("name");
   localStorage.removeItem("name");
   localStorage.clear();
