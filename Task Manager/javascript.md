@@ -389,11 +389,55 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 ---
 
 ### **[Chapter 19: Event Listeners](#chapter-19-event-listeners)**
-```js
-element.addEventListener("click", function() {
-  console.log("Element clicked!");
-}, true);  // Use capture phase
-```
+
+- **Basic Event Listener**:
+  ```js
+  element.addEventListener("click", function() {
+    console.log("Element clicked!");
+  });
+  ```
+
+- **Bubbling Up** (Event Propagation):
+  - Bubbling is the default event propagation behavior. The event starts from the target element and "bubbles" up to the parent elements.
+  - You can stop this bubbling by calling `event.stopPropagation()`.
+
+  ```js
+  document.querySelector(".child").addEventListener("click", function(event) {
+    console.log("Child element clicked");
+    event.stopPropagation();  // Stops event from bubbling up
+  });
+
+  document.querySelector(".parent").addEventListener("click", function() {
+    console.log("Parent element clicked");
+  });
+  ```
+
+  In this example, when the child element is clicked, the event will not bubble up to the parent element due to `event.stopPropagation()`.
+
+- **Bubbling Down** (Capturing Phase):
+  - The capturing phase happens before bubbling. The event starts from the root element and propagates down to the target element.
+  - To enable the capturing phase, the third argument of `addEventListener` should be set to `true`.
+
+  ```js
+  document.querySelector(".parent").addEventListener("click", function() {
+    console.log("Parent element clicked in capturing phase");
+  }, true);  // True enables capturing phase
+
+  document.querySelector(".child").addEventListener("click", function() {
+    console.log("Child element clicked");
+  });
+  ```
+
+  In this example, the parent element's click event will be triggered first during the capturing phase before the child element's click event.
+
+- **useCapture**:
+  - The `useCapture` option lets you control whether the event listener should be triggered during the capturing phase (when set to `true`) or the bubbling phase (default is `false`).
+
+  ```js
+  element.addEventListener("click", function() {
+    console.log("Clicked during capture phase");
+  }, true);  // Capturing phase
+  ```
 
 ---
 
