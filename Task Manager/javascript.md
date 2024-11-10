@@ -460,6 +460,10 @@ export const greet = () => "Hello";
 // In main.js
 import { greet } from './module1.js';
 console.log(greet());
+
+// Import everything
+import * as obj from './module1.js';
+console.log(obj.greet());
 ```
 
 ---
