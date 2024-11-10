@@ -1,4 +1,4 @@
-```markdown
+```
 # JavaScript Cheat Sheet
 
 ---
