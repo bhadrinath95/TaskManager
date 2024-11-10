@@ -372,12 +372,12 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
   element.setAttribute("title", "New Title");
   ```
   
-- **`innerHTML`**: 
+- **Modify Inner HTML**: 
   ```javascript
   document.getElementById("example").innerHTML = "<strong>Bold text</strong>";
   ```
 
-- **`textContent`**: 
+- **Modify Text Content**: 
   ```javascript
   document.getElementById("example").textContent = "Plain text content";
   ```
