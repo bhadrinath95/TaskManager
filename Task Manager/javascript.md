@@ -441,8 +441,7 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 
 ### **[Chapter 20: API (Application Programming Interface)](#chapter-20-api-application-programming-interface)**
 
-- **LocalStorage & SessionStorage**:
--- [LocalStorage & SessionStorage Doc](https://github.com/bhadrinath95/TaskManager/blob/3b9338d4ecfa1bd603e0cb43cb0a9c2f5c4ff030/Task%20Manager/storage.md)
+- **LocalStorage & SessionStorage**: [Document](https://github.com/bhadrinath95/TaskManager/blob/3b9338d4ecfa1bd603e0cb43cb0a9c2f5c4ff030/Task%20Manager/storage.md)
   ```js
   localStorage.setItem("name", "John");
   sessionStorage.setItem("sessionName", "Tom");
