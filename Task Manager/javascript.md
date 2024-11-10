@@ -154,11 +154,12 @@ greet("John");
 
 ---
 
-### **Chapter 13: Arrays**
+### **Chapter 13: Arrays (Updated)**
+
 - **Methods**:
   ```js
-  let arr = [1, 2, 3];
-  arr.push(4); // Adds 4 at the end
+  let arr = [1, 2, 3, 4];
+  arr.push(5); // Adds 5 at the end
   arr.pop(); // Removes the last element
   arr.shift(); // Removes the first element
   arr.unshift(0); // Adds 0 at the beginning
@@ -166,6 +167,21 @@ greet("John");
   arr.reverse(); // Reverses the array
   arr.concat([5, 6]); // Combines arrays
   let newArr = [...arr]; // Spread operator
+  ```
+
+- **Splice**:  
+  - The `splice()` method changes the contents of an array by removing or replacing existing elements and/or adding new ones.
+  ```js
+  arr.splice(2, 1); // Removes 1 element at index 2
+  arr.splice(2, 1, 8); // Removes 1 element at index 2 and adds 8
+  arr.splice(2, 0, 6, 7); // Adds 6 and 7 at index 2 without removing any elements
+  ```
+
+- **Delete Keyword**:  
+  - The `delete` keyword removes an element from the array but leaves a hole in the array (undefined at that index).
+  ```js
+  delete arr[1]; // Removes the element at index 1, leaving undefined at that index
+  console.log(arr); // [1, undefined, 3, 4]
   ```
 
 ---
@@ -206,31 +222,95 @@ let jsonString = JSON.stringify(jsonObj); // Convert object to string
 
 ---
 
-### **Chapter 17: Error Handling**
+### **Chapter 17: Error Handling (Updated)**
+
 - **try-catch**:
+  - **try**: Contains the code that may throw an error.
+  - **catch**: Catches the error if it occurs and handles it.
   ```js
   try {
-    let x = y + 1; // ReferenceError
+    let x = y + 1; // ReferenceError: y is not defined
   } catch (error) {
-    console.log(error.message); // Handles error
+    console.log(error.message); // Logs the error message
   }
   ```
 
-- **Errors**:
+- **Finally**: This block will always execute, regardless of whether an error occurred or not.
   ```js
-  ReferenceError: variable is not defined
-  SyntaxError: unexpected token
-  TypeError: Cannot read property of undefined
+  try {
+    let x = y + 1;
+  } catch (error) {
+    console.log("Error: " + error.message);
+  } finally {
+    console.log("This block is always executed");
+  }
   ```
 
-- **Use Strict**:
+- **Types of Errors**:
+  - **ReferenceError**: A variable or function is used before being declared.
+    ```js
+    let x = y + 1; // ReferenceError: y is not defined
+    ```
+
+  - **SyntaxError**: There is a mistake in the syntax of your code.
+    ```js
+    eval("console.log('Hello'"); // SyntaxError: Unexpected end of input
+    ```
+
+  - **TypeError**: An operation is performed on a value of an incorrect type.
+    ```js
+    let x = "string";
+    x.toUpperCase(); // Works fine
+    let y = undefined;
+    y.toUpperCase(); // TypeError: Cannot read property 'toUpperCase' of undefined
+    ```
+
+- **Use Strict**: Enforces a stricter version of JavaScript to catch common coding mistakes.
   ```js
-  "use strict";
+  "use strict"; // Enables strict mode
+  ```
+
+- **Custom Error Handling**:
+  - **Throwing a Custom Error**: You can throw your own errors to handle specific conditions.
+  ```js
+  function checkAge(age) {
+    if (age < 18) {
+      throw new Error("Age must be 18 or older");
+    }
+    console.log("Age is valid");
+  }
+
+  try {
+    checkAge(16); // Will throw an error
+  } catch (error) {
+    console.log(error.message); // "Age must be 18 or older"
+  }
+  ```
+
+  - **Creating Custom Error Classes**: Extend the base `Error` class to create your own error types.
+  ```js
+  class CustomError extends Error {
+    constructor(message) {
+      super(message); // Call the parent constructor
+      this.name = this.constructor.name; // Set custom error name
+      this.message = message; // Set custom error message
+      this.stack = (new Error()).stack; // Capture the stack trace
+    }
+  }
+
+  try {
+    throw new CustomError("This is a custom error");
+  } catch (error) {
+    console.log(error.name); // CustomError
+    console.log(error.message); // "This is a custom error"
+    console.log(error.stack); // Stack trace of the error
+  }
   ```
 
 ---
 
 ### **Chapter 18: DOM (Document Object Model)**
+
 - **Query/Get Elements**:
   ```js
   let element = document.getElementById("myElement");
@@ -238,136 +318,62 @@ let jsonString = JSON.stringify(jsonObj); // Convert object to string
   ```
 
 - **Create/Clone Elements**:
+
+
   ```js
   let newDiv = document.createElement("div");
-  let clonedDiv = newDiv.cloneNode(true);
+  let cloneDiv = newDiv.cloneNode(true); // Deep clone
   ```
 
 - **Add Node to Document**:
   ```js
-  document.body.appendChild(newDiv);
+  document.body.appendChild(newDiv); // Adds new div to body
+  ```
+
+- **Get Element Details**:
+  ```js
+  let className = element.className; // Get class name
+  let id = element.id; // Get id
   ```
 
 - **Modify Element**:
   ```js
-  element.innerHTML = "New Content";
+  element.style.color = "red"; // Change color
+  element.setAttribute("title", "New Title"); // Set attribute
   ```
 
 - **Get and Modify Element Class**:
   ```js
   element.classList.add("newClass");
   element.classList.remove("oldClass");
+  element.classList.toggle("active");
   ```
 
 - **Remove Node**:
   ```js
-  element.remove();
+  element.remove(); // Removes the element from DOM
   ```
 
 ---
 
 ### **Chapter 19: Event Listeners**
-- **Mouse Events**:
-  ```js
-  element.addEventListener("click", function() { console.log("Clicked!"); });
-  element.addEventListener("dblclick", function() { console.log("Double clicked!"); });
-  ```
-
-- **Keyboard Events**:
-  ```js
-  document.addEventListener("keydown", function(event) { console.log(event.key); });
-  document.addEventListener("keyup", function(event) { console.log(event.key); });
-  ```
-
-- **Form Events**:
-  ```js
-  form.addEventListener("submit", function(event) { event.preventDefault(); });
-  inputElement.addEventListener("change", function() { console.log("Input changed!"); });
-  ```
-
-- **Focus Events**:
-  ```js
-  inputElement.addEventListener("focus", function() { console.log("Focused!"); });
-  inputElement.addEventListener("blur", function() { console.log("Blurred!"); });
-  ```
-
-- **Window Events**:
-  ```js
-  window.addEventListener("resize", function() { console.log("Resized!"); });
-  window.addEventListener("scroll", function() { console.log("Scrolling!"); });
-  ```
-
-- **Touch Events**:
-  ```js
-  element.addEventListener("touchstart", function() { console.log("Touch started!"); });
-  element.addEventListener("touchmove", function() { console.log("Touch moving!"); });
-  ```
+```js
+element.addEventListener("click", function() {
+  console.log("Element clicked!");
+}, true); // Use capture phase
+```
 
 ---
 
 ### **Chapter 20: API (Application Programming Interface)**
 
-#### **Fetch API**
-- **Making Requests with Fetch**:
+- **LocalStorage & SessionStorage**:
   ```js
-  fetch("https://api.example.com")
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error));
-  ```
-
-#### **LocalStorage**
-- **Store data**: LocalStorage stores data without an expiration date (persistent across sessions).
-  ```js
-  // Store data
-  localStorage.setItem("username", "JohnDoe");
-  
-  // Retrieve data
-  let username = localStorage.getItem("username");
-  console.log(username); // "JohnDoe"
-  
-  // Remove data
-  localStorage.removeItem("username");
-  
-  // Clear all local storage data
+  localStorage.setItem("name", "John"); // Store in localStorage
+  sessionStorage.setItem("sessionName", "Tom"); // Store in sessionStorage
+  let name = localStorage.getItem("name");
+  localStorage.removeItem("name");
   localStorage.clear();
-  ```
-
-- **Check if data exists**:
-  ```js
-  if (localStorage.getItem("username")) {
-    console.log("Data exists!");
-  } else {
-    console.log("No data found.");
-  }
-  ```
-
-#### **SessionStorage**
-- **Store data**: SessionStorage stores data only for the duration of the page session (data is cleared when the page is closed).
-  ```js
-  // Store data
-  sessionStorage.setItem("sessionID", "abc123");
-  
-  // Retrieve data
-  let sessionID =
-
- sessionStorage.getItem("sessionID");
-  console.log(sessionID); // "abc123"
-  
-  // Remove data
-  sessionStorage.removeItem("sessionID");
-  
-  // Clear all session storage data
-  sessionStorage.clear();
-  ```
-
-- **Session-based storage**: SessionStorage is only available for the duration of the page session and is not shared across different tabs or windows.
-  ```js
-  if (sessionStorage.getItem("sessionID")) {
-    console.log("Session data exists!");
-  } else {
-    console.log("No session data.");
-  }
   ```
 
 ---
@@ -375,23 +381,24 @@ let jsonString = JSON.stringify(jsonObj); // Convert object to string
 ### **Chapter 21: Modules**
 ```js
 // In module1.js
-export const greet = () => console.log("Hello!");
-export const name = "John";
+export const greet = () => "Hello";
 
-// In app.js
-import { greet, name } from './module1.js';
-greet();
-console.log(name);
+// In main.js
+import { greet } from './module1.js';
+console.log(greet());
 ```
 
 ---
 
 ### **Chapter 22: Higher Order Functions**
 ```js
-// Example: Map function
-let numbers = [1, 2, 3];
-let doubled = numbers.map(num => num * 2);
-console.log(doubled); // [2, 4, 6]
+// A function that accepts another function as an argument
+function greet(name, callback) {
+  console.log("Hello " + name);
+  callback();
+}
+
+greet("John", () => console.log("Good Morning!"));
 ```
 
 ---
