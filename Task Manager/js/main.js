@@ -1,21 +1,31 @@
-// Select form, input, and task list elements
-const taskForm = document.getElementById("taskForm");
-const taskInput = document.getElementById("taskInput");
-const taskList = document.getElementById("taskList");
+let tasks = [];
 
-// Load tasks from localStorage when the page loads
-let tasks = loadTasksFromLocalStorage();
-displayTasks();
-
-// Event listener for form submission to add a new task
-taskForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent form from refreshing the page
-    const taskName = taskInput.value.trim();
-    if (taskName) {
-        addTask(taskName);
-        taskInput.value = ""; // Clear the input field
+document.addEventListener("readystatechange", (event) => {
+    if(event.target.readyState === "complete") {
+        initApp();
     }
-});
+})
+
+function initApp() {
+    // Select form, input, and task list elements
+    const taskForm = document.getElementById("taskForm");
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+
+    // Load tasks from localStorage when the page loads
+    tasks = loadTasksFromLocalStorage();
+    displayTasks();
+
+    // Event listener for form submission to add a new task
+    taskForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent form from refreshing the page
+        const taskName = taskInput.value.trim();
+        if (taskName) {
+            addTask(taskName);
+            taskInput.value = ""; // Clear the input field
+        }
+    });
+}
 
 // Function to add a task
 function addTask(taskName) {
@@ -23,7 +33,7 @@ function addTask(taskName) {
     tasks.push(newTask);
     saveTasksToLocalStorage(tasks);
     displayTasks();
-}
+}   
 
 // Function to display tasks on the page
 function displayTasks() {
