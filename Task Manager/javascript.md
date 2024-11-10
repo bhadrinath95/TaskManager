@@ -308,9 +308,7 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
   try {
     throw new CustomError("This is a custom error");
   } catch (error) {
-    console.log(error
-
-.name);  // CustomError
+    console.log(error.name);  // CustomError
     console.log(error.message);  // "This is a custom error"
     console.log(error.stack);  // Error stack trace
   }
