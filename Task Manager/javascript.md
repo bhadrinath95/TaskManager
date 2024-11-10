@@ -1,7 +1,6 @@
 ```
 # JavaScript Cheat Sheet
-
----
+```
 
 ### **[Chapter 1: Introduction](#chapter-1-introduction)**
 - JavaScript is a scripting language used to create interactive web pages.
