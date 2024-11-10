@@ -143,12 +143,37 @@ console.log("Hello " + userInput);
 ---
 
 ### **[Chapter 11: Functions](#chapter-11-functions)**
-```js
-function greet(name) {
-  console.log("Hello " + name);
-}
-greet("John");
-```
+
+- **Function Declaration**:
+  ```js
+  function greet(name) {
+    console.log("Hello " + name);
+  }
+  greet("John");
+  ```
+
+- **Function Expression**:
+  ```js
+  const greet = function(name) {
+    console.log("Hello " + name);
+  }
+  greet("John");
+  ```
+
+- **Arrow Function**:
+  ```js
+  const greet = (name) => {
+    console.log("Hello " + name);
+  }
+  greet("John");
+  ```
+
+- **Immediately Invoked Function Expression (IIFE)**:
+  ```js
+  (function() {
+    console.log("I am immediately invoked!");
+  })();
+  ```
 
 ---
 
