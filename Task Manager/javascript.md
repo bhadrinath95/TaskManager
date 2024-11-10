@@ -469,6 +469,8 @@ console.log(obj.greet());
 ---
 
 ### **[Chapter 22: Higher Order Functions](#chapter-22-higher-order-functions)**
+Higher-order functions are functions that take other functions as arguments or return a function as their result. Common higher-order functions in JavaScript include `map`, `filter`, and `reduce`.
+
 ```js
 function greet(name, callback) {
   console.log("Hello " + name);
@@ -477,4 +479,47 @@ function greet(name, callback) {
 
 greet("John", () => console.log("Good Morning!"));
 ```
----
+
+#### **Filter**
+- The `filter` function creates a new array with elements that pass a specified condition.
+  
+  **Syntax**:
+  ```javascript
+  array.filter(callback(element, index, array), thisArg);
+  ```
+
+  **Example**: Filter an array of numbers to include only the even numbers.
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5, 6];
+  const evenNumbers = numbers.filter(num => num % 2 === 0);
+  console.log(evenNumbers); // Output: [2, 4, 6]
+  ```
+
+#### **Map**
+- The `map` function creates a new array populated with the results of calling a provided function on every element in the calling array.
+
+  **Syntax**:
+  ```javascript
+  array.map(callback(element, index, array), thisArg);
+  ```
+
+  **Example**: Double each element in an array of numbers.
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5];
+  const doubledNumbers = numbers.map(num => num * 2);
+  console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+  ```
+
+#### **Combining Map and Filter**
+- You can combine `map` and `filter` to perform multiple operations.
+
+  **Example**: Filter to keep only odd numbers and then double them.
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5, 6];
+  const doubledOdds = numbers
+    .filter(num => num % 2 !== 0) // Keep only odd numbers
+    .map(num => num * 2);         // Double each odd number
+
+  console.log(doubledOdds); // Output: [2, 6, 10]
+  ```
+--- 
