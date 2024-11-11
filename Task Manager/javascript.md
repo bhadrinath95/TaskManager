@@ -354,126 +354,174 @@ let jsonString = JSON.stringify(jsonObj);  // Convert object to string
 
 ### **[Chapter 18: DOM](#chapter-18-dom)**
 
-- **Query/Get Elements**:
-  ```js
-  let element = document.getElementById("view");
-  let allElements = document.getElementsByClassName(".myClass");
-  let element = document.querySelector("#view");
-  let allElements = document.querySelectorAll(".myClass");
-  ```
 
-- **Create/Clone Elements**:
-  ```js
-  let newElement = document.createElement("div");
-  let clonedElement = element.cloneNode(true);
-  ```
+#### **(a) Query/Get Elements**:
 
-- **Add Node to Document**:
-  ```js
-  document.body.appendChild(newElement);
-  ```
+- **By ID**: `document.getElementById("myId");`
+- **By Class Name**: `document.getElementsByClassName("myClass");`
+- **By Tag Name**: `document.getElementsByTagName("tagName");`
+- **By CSS Selector** (first match): `document.querySelector(".myClass");`
+- **By CSS Selector** (all matches): `document.querySelectorAll(".myClass");`
 
-- **Get Element Details**:
-  ```js
-  let className = element.className;
-  let id = element.id;
-  ```
+---
 
-- **Modify Element**:
-  ```js
-  element.style.color = "red";
-  element.setAttribute("title", "New Title");
-  ```
-  
-- **Modify Inner HTML**: 
+#### **(b) Modifying Elements**
+
+- **Change Inner Content**:
   ```javascript
-  document.getElementById("example").innerHTML = "<strong>Bold text</strong>";
+  element.innerHTML = "New HTML content";
+  element.textContent = "New text content"; // safer for plain text
   ```
 
-- **Modify Text Content**: 
+- **Change Attributes**:
   ```javascript
-  document.getElementById("example").textContent = "Plain text content";
-  ```
-  
-- **Get and Modify Element Class**:
-  ```js
-  element.classList.add("newClass");
-  element.classList.remove("oldClass");
-  element.classList.toggle("active");
+  element.setAttribute("src", "image.jpg");
+  const id = element.getAttribute("id");
+  element.removeAttribute("alt");
   ```
 
-- **Remove Node**:
-  ```js
-  element.remove();
+- **Modify Styles**:
+  ```javascript
+  element.style.color = "blue";
+  element.style.fontSize = "18px";
+  element.style.backgroundColor = "yellow";
   ```
 
 ---
 
-### **[Chapter 19: DOM Traversal Methods](#chapter-23-dom-traversal-methods)**
+#### **(c) Managing Classes**
 
-These methods allow you to navigate through the DOM elements relative to a specific element.
-
-- **parentElement**: Returns the parent element of a specified element.
-  ```js
-  let parent = element.parentElement;
+- **Add / Remove / Toggle Class**:
+  ```javascript
+  element.classList.add("new-class");
+  element.classList.remove("old-class");
+  element.classList.toggle("highlight");
   ```
 
-- **nextSibling**: Returns the next sibling node of an element (including text nodes).
-  ```js
-  let next = element.nextSibling;
+- **Check Class**:
+  ```javascript
+  element.classList.contains("highlight"); // returns true or false
   ```
 
-- **nextElementSibling**: Returns the next sibling element (ignores text nodes).
-  ```js
-  let nextElement = element.nextElementSibling;
+- **Replace Class**:
+  ```javascript
+  element.classList.replace("old-class", "new-class");
   ```
 
-- **previousSibling**: Returns the previous sibling node of an element (including text nodes).
-  ```js
-  let prev = element.previousSibling;
+---
+
+#### **(d) Cloning Elements**
+
+- **Clone Node**:
+  ```javascript
+  const clone = element.cloneNode(true); // true for deep clone, false for shallow
+  document.body.appendChild(clone); // Append the clone to the body or another element
   ```
 
-- **previousElementSibling**: Returns the previous sibling element (ignores text nodes).
-  ```js
-  let prevElement = element.previousElementSibling;
+---
+
+#### **(e) Appending and Removing Nodes**
+
+- **Append Node as Last Child**:
+  ```javascript
+  parentElement.appendChild(newElement);
   ```
 
-- **children**: Returns a live HTMLCollection of the child elements of an element.
-  ```js
-  let children = element.children;
+- **Append Multiple Nodes / Text**:
+  ```javascript
+  parentElement.append(newElement, "Text content");
   ```
 
-- **childNodes**: Returns a live NodeList of all child nodes (including text nodes).
-  ```js
-  let childNodes = element.childNodes;
+- **Remove Node**:
+  ```javascript
+  parentElement.removeChild(childElement);
   ```
 
-- **hasChildNodes**: Returns a boolean indicating whether the element has child nodes.
-  ```js
-  let hasChildren = element.hasChildNodes();
+---
+
+#### **(f) Event Handling**
+
+- **Add Event Listener**:
+  ```javascript
+  element.addEventListener("click", function() {
+    alert("Element clicked!");
+  });
   ```
 
-- **lastChild**: Returns the last child node of an element (including text nodes).
-  ```js
-  let lastChild = element.lastChild;
+---
+
+#### **(g) DOM Traversal Methods**
+
+- **Parent Node**:
+  ```javascript
+  const parent = element.parentNode;
   ```
 
-- **lastElementChild**: Returns the last child element (ignores text nodes).
-  ```js
-  let lastElementChild = element.lastElementChild;
+- **Child Nodes (all)**:
+  ```javascript
+  const children = element.childNodes;
   ```
 
-- **firstChild**: Returns the first child node of an element (including text nodes).
-  ```js
-  let firstChild = element.firstChild;
+- **Child Elements Only**:
+  ```javascript
+  const children = element.children;
   ```
 
-- **firstElementChild**: Returns the first child element (ignores text nodes).
-  ```js
-  let firstElementChild = element.firstElementChild;
+- **First / Last Child**:
+  ```javascript
+  const first = element.firstChild;
+  const last = element.lastChild;
   ```
 
-### **[Chapter 20: Event Listeners](#chapter-19-event-listeners)**
+- **Next / Previous Sibling**:
+  ```javascript
+  const next = element.nextSibling;
+  const prev = element.previousSibling;
+  ```
+
+- **Next / Previous Element Sibling** (only element nodes):
+  ```javascript
+  const nextElement = element.nextElementSibling;
+  const prevElement = element.previousElementSibling;
+  ```
+
+---
+
+### **Example Usage**
+
+Here's a quick example to see these concepts in action:
+
+```html
+<div id="container">
+  <p class="text">Original text</p>
+</div>
+<button id="cloneButton">Clone Element</button>
+<button id="styleButton">Change Style</button>
+```
+
+```javascript
+const container = document.getElementById("container");
+const textElement = document.querySelector(".text");
+
+document.getElementById("cloneButton").addEventListener("click", function() {
+  const clonedElement = textElement.cloneNode(true);
+  container.appendChild(clonedElement);
+});
+
+document.getElementById("styleButton").addEventListener("click", function() {
+  textElement.style.color = "green";
+  textElement.style.fontSize = "24px";
+  textElement.classList.toggle("highlight");
+});
+
+// Traversal example
+const parent = textElement.parentNode;
+const firstChild = container.firstElementChild;
+const nextSibling = textElement.nextElementSibling;
+```
+
+
+### **[Chapter 19: Event Listeners](#chapter-19-event-listeners)**
 
 - **Basic Event Listener**:
   ```js
@@ -526,7 +574,7 @@ These methods allow you to navigate through the DOM elements relative to a speci
 
 ---
 
-### **[Chapter 21: API (Application Programming Interface)](#chapter-20-api-application-programming-interface)**
+### **[Chapter 20: API (Application Programming Interface)](#chapter-20-api-application-programming-interface)**
 
 - **LocalStorage & SessionStorage**: [Document](https://github.com/bhadrinath95/TaskManager/blob/3b9338d4ecfa1bd603e0cb43cb0a9c2f5c4ff030/Task%20Manager/storage.md)
   ```js
@@ -539,7 +587,7 @@ These methods allow you to navigate through the DOM elements relative to a speci
 
 ---
 
-### **[Chapter 22: Modules](#chapter-21-modules)**
+### **[Chapter 21: Modules](#chapter-21-modules)**
 ```js
 // In module1.js
 export const greet = () => "Hello";
@@ -555,8 +603,8 @@ console.log(obj.greet());
 
 ---
 
-### **[Chapter 23: Higher Order Functions](#chapter-22-higher-order-functions)**
-Higher-order functions are functions that take other functions as arguments or return a function as their result. Common higher-order functions in JavaScript include `map`, `filter`, and `reduce`.
+### **[Chapter 22: Higher Order Functions](#chapter-22-higher-order-functions)**
+Higher-order functions take other functions as arguments or return a function as their result. Common higher-order functions in JavaScript include `map`, `filter`, and `reduce`.
 
 ```js
 function greet(name, callback) {
