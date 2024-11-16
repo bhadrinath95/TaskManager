@@ -644,7 +644,24 @@ greet("John", () => console.log("Good Morning!"));
   const doubledNumbers = numbers.map(num => num * 2);
   console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
   ```
+#### **Reduce**
+- The `reduce` method is used to "reduce" an array to a single value by iterating over each element in the array and applying a callback function to accumulate or transform the array into the final result.
 
+  **Syntax**:
+  ```javascript
+  array.reduce(callback, initialValue);
+  ```
+
+  **Example**: Double each element in an array of numbers.
+  ```javascript
+  const numbers = [1, 2, 3, 4, 5];
+  
+  const sum = numbers.reduce((acc, currentValue) => {
+    return acc + currentValue; // Add current value to accumulator
+  }, 0); // Start the accumulator at 0
+  
+  console.log(sum); // Output: 15
+  ```
 #### **Combining Map and Filter**
 - You can combine `map` and `filter` to perform multiple operations.
 
