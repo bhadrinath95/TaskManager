@@ -576,7 +576,7 @@ const nextSibling = textElement.nextElementSibling;
 
 ### **[Chapter 20: API (Application Programming Interface)](#chapter-20-api-application-programming-interface)**
 
-- **LocalStorage & SessionStorage**: [Document](https://github.com/bhadrinath95/TaskManager/blob/3b9338d4ecfa1bd603e0cb43cb0a9c2f5c4ff030/Task%20Manager/storage.md)
+#### **LocalStorage & SessionStorage**: [Document](https://github.com/bhadrinath95/TaskManager/blob/3b9338d4ecfa1bd603e0cb43cb0a9c2f5c4ff030/Task%20Manager/storage.md)
   ```js
   localStorage.setItem("name", "John");
   sessionStorage.setItem("sessionName", "Tom");
@@ -585,6 +585,43 @@ const nextSibling = textElement.nextElementSibling;
   localStorage.clear();
   ```
 
+#### API
+
+- GET
+  ```js
+  const users = async() => {
+      const response = await fetch("https://jsonplaceholder.typicode.com/users")
+      const userData = await response.json()
+      return userData
+  }
+  users()
+  ```
+  
+- POST
+  ```js
+  const myJson = {
+      id: 1,
+      title: 'Bhadri',
+      occupation: 'Software Developer',
+      company: 'Bank Of America'
+  }
+  const postMyJson = async (myJsonObj) => {
+      const response = await fetch(
+          "https://httpbin.org/post", 
+          {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(myJsonObj)
+          }
+      )
+      const responseData = await response.json()
+      console.log(responseData)
+  }
+  postMyJson(myJson)
+  ```
+  
 ---
 
 ### **[Chapter 21: Modules](#chapter-21-modules)**
